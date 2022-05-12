@@ -59,28 +59,6 @@
       "author": "Me, a few times",
       "quote": "I hope this works",
       "id": 12
-    },
-    {
-      "author": "me, also a few times",
-      "quote": "now will it work?",
-      "id": 13
-    },
-    {
-      "author": "still me",
-      "quote": "What about this?",
-      "id": 14
-    },
-    {
-      "author": "meeee",
-      "likes": [],
-      "quote": "this?",
-      "id": 15
-    },
-    {
-      "author": "no",
-      "likes": [],
-      "quote": "hi",
-      "id": 16
     }
   ],
   "likes": [
@@ -120,24 +98,8 @@
       "id": 7
     },
     {
-      "quoteId": 16,
-      "createdAt": 1234567,
+      "quoteId": 1,
       "id": 8
-    },
-    {
-      "quoteId": 16,
-      "createdAt": 1234567,
-      "id": 9
-    },
-    {
-      "quoteId": 16,
-      "createdAt": 1234567,
-      "id": 10
-    },
-    {
-      "quoteId": 16,
-      "createdAt": 1234567,
-      "id": 11
     }
   ]
 }

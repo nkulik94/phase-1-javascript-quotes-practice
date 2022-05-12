@@ -40,15 +40,15 @@ function renderQuote(quote) {
     const btn1 = document.createElement('button')
     btn1.id = `like-${quote.id}`
     btn1.className = 'btn-success'
-    btn1.innerHTML = `
-        Likes: <span>${quote.likes.length}</span>
-    `
+    btn1.innerHTML = `Likes: <span>${quote.likes.length}</span>`
     blockquote.appendChild(btn1)
     btn1.addEventListener('click', e => handleLikes(e.target))
     const btn2 = document.createElement('button')
+    btn2.id = `delete-${quote.id}`
     btn2.className = 'btn-danger'
     btn2.textContent = 'Delete'
     blockquote.appendChild(btn2)
+    btn2.addEventListener('click', e => handleDelete(e.target))
     document.getElementById('quote-list').appendChild(li)
 }
 
@@ -70,11 +70,23 @@ function submitNewQuote() {
 function handleLikes(btn) {
     btn.children[0].textContent = parseInt(btn.children[0].textContent, 10) + 1
     const likeBody = {
-        quoteId: parseInt(btn.id.split('-')[1], 10),
-        createdAt: 1234567
+        quoteId: parseInt(btn.id.split('-')[1], 10)
     }
     fetch('http://localhost:3000/likes', new Config('POST', likeBody))
     .then(res => res.json())
     .then(res => res)
     .catch(error => console.log('error', error))
+}
+
+function handleDelete(btn) {
+    const configObj = {
+        method: 'DELETE',
+        headers: {
+            "Content-type": "application/json"
+        }
+    }
+    fetch(`http://localhost:3000/quotes/${btn.id.split('-')[1]}`, configObj)
+    .then(res => res.json())
+    .then(res => res)
+    btn.parentElement.parentElement.remove()
 }
